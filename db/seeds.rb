@@ -16,15 +16,20 @@ require "json"
 require "open-uri"
 require 'nokogiri'
 
-
-html_content = URI.open('https://parade.com/1222580/samuelmurrian/best-movies-all-time/').read
-doc = Nokogiri::HTML(html_content)
-
 top_movies = []
 
-doc.search('.m-detail--body h3').each do |element|
-  top_movies << element.text.gsub(/[^a-zA-Z ]/, "").strip
+(1..25).each do |number|
+  url = "https://www.listchallenges.com/top-1000-greatest-movies-of-all-time-by-imdb/list/#{number}"
+  html_content = URI.open(url).read
+  doc = Nokogiri::HTML(html_content)
+  doc.search('.item-name').each do |element|
+    top_movies << element.text.gsub(/[^a-zA-Z ]/, "").strip
+  end
 end
+
+
+
+
 
 
 key = "21c0c10e"
