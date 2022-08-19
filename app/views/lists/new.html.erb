@@ -1,4 +1,4 @@
-<%= simple_form_for(@list) do |f| %>
+<%= simple_form_for [@list], data: { turbo: false }  do |f| %>
   <%= f.input :name %>
   <%= f.submit "New list", class: "btn btn-primary" %>
 <% end %>

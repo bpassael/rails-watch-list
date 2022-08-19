@@ -11,8 +11,12 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    @list.save
-    redirect_to lists_path(@list)
+    if @list.valid?
+      @list.save
+      redirect_to lists_path(@list)
+    else
+      render :new
+    end
   end
 
   def show

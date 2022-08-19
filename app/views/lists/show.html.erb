@@ -2,7 +2,7 @@
 
 <ul>
   <% @list.bookmarks.each do |bookmark| %>
-      <li><strong><%= bookmark.movie.title %></strong><%=  "- #{bookmark.comment}" if bookmark.comment.length > 0 %> - <%= bookmark.movie.overview %> - <strong><%= bookmark.movie.rating %> stars</strong>   <%= link_to(
+      <li><strong><%= bookmark.movie.title %></strong> -  <span style="color: #edc747"><%= bookmark.movie.rating %> stars</span><%=  "- #{bookmark.comment}" if bookmark.comment.length > 0 %> - <%= bookmark.movie.overview %> <%= link_to(
     list_bookmark_path(@list.id, bookmark.id),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do %>
      <i class="fa fa-dumpster-fire"></i>
