@@ -1,16 +1,22 @@
-<h1><%= @list.name %></h1>
 
-<ul>
+<div class="cards">
+
   <% @list.bookmarks.each do |bookmark| %>
-      <li><strong><%= bookmark.movie.title %></strong> -  <span style="color: #edc747"><%= bookmark.movie.rating %> stars</span><%=  "- #{bookmark.comment}" if bookmark.comment.length > 0 %> - <%= bookmark.movie.overview %> <%= link_to(
-    list_bookmark_path(@list.id, bookmark.id),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do %>
-     <i class="fa fa-dumpster-fire"></i>
-     <% end %>
-</li>
+
+<div class="card-movie" data-aos="flip-down">
+  <img src=<%= bookmark.movie.poster_url %> />
+  <div class="card-movie-infos">
+    <div>
+      <h2><%= bookmark.movie.title %> <span style="color: #edc747" class="px-2"><i class="fa-solid fa-star"></i><%= bookmark.movie.rating %> stars</span><%= link_to(list_bookmark_path(@list, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}) do%><i class="fa-solid fa-trash-can"></i>
+      <% end %></h2>
+      <p><%= bookmark.movie.overview %></p>
+      <% if bookmark.comment.length > 0 %>
+      <p><i class="fa-solid fa-quote-left mt-2"></i> <%= bookmark.comment %> <i class="fa-solid fa-quote-right"></i></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
   <% end %>
-  </ul>
 
-<p><%= link_to "Add a bookmark", new_list_bookmark_path(@list.id)	%></p>
-
-<p><%= link_to "Back to lists", lists_path %></p>
+</div>
