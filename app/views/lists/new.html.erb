@@ -1,4 +1,5 @@
 <%= simple_form_for [@list], data: { turbo: false }  do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "New list", class: "btn btn-primary" %>
 <% end %>
