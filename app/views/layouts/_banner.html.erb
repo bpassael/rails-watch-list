@@ -1,5 +1,8 @@
-<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner mb-3">
   <div class="container">
+    <% if @movies %>
+  <h1 class="animate__animated animate__jello">All movies</h1>
+   <% else %>
   <% if @list %>
   <% if @list.name %>
   <h1 class="animate__animated animate__jello"><%= @list.name %></h1>
@@ -9,6 +12,7 @@
   <% else %>
     <h1 class="animate__animated animate__jello">My lists</h1>
     <% end %>
+     <% end %>
   </div>
 
 

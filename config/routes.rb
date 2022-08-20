@@ -12,7 +12,12 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:new, :create, :destroy]
     # get 'list/:id/bookmarks/new', to: 'bookmarks#new'
     # post 'list/:id/bookmarks', to: 'bookmarks#create'
-  resources :movies, only: :index
   end
+  resources :movies, only: :index do
+    get '/bookmarks/new', to: 'bookmarks#new_from_movie', as: 'bookmarks'
+    post '/bookmarks/new', to: 'bookmarks#create_from_movie'
+  end
+  resources :bookmarks, only: [:index]
+
 
 end

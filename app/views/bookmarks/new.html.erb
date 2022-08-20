@@ -4,7 +4,3 @@
     <%= f.association :movie, collection: Movie.order('title') %>
   <%= f.submit "Submit bookmark", class: "btn btn-primary" %>
 <% end %>
-
-
-
-<%= link_to "Back to list", list_path(params['list_id']) %>

@@ -10,11 +10,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <% if @list && @list.id %>
-          <li class="nav-item">
-            <%= link_to "Add a bookmark", new_list_bookmark_path(@list.id), class: "nav-link" %>
-          </li>
-          <% end %>
           <li class="nav-item">
             <%= link_to "All movies", movies_index_path, class: "nav-link" %>
           </li>

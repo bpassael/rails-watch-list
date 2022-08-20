@@ -1,9 +1,19 @@
 
 <div class="cards">
+<div>
+  <h1 class='mt-4'>New bookmark</h1>
+<%= simple_form_for [@list, @bookmark],  data: { turbo: false } do |f| %>
+  <%= f.input :comment %>
+    <%= f.association :movie, collection: Movie.order('title') %>
+  <%= f.submit "Submit bookmark", class: "btn btn-primary" %>
+<% end %>
+</div>
 
   <% @list.bookmarks.each do |bookmark| %>
 
-<div class="card-movie" data-aos="flip-down">
+
+
+<div class="card-movie">
   <img src=<%= bookmark.movie.poster_url %> />
   <div class="card-movie-infos">
     <div>
