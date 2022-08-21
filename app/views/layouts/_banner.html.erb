@@ -1,4 +1,4 @@
-<div class="banner mb-3">
+<div class="banner mb-3" style="background-image: url(<%= @list && @list.name ? (cl_image_path @list.photo.key, height: 600, crop: :fill) : (image_path 'background.webp') %>)">
   <div class="container">
     <% if @movies %>
   <h1 class="animate__animated animate__jello">All movies</h1>
