@@ -10,8 +10,9 @@
       <h2><%= movie.title %> <span style="color: #edc747" class="px-2"><i class="fa-solid fa-star"></i><%= movie.rating %> stars</span>
       </h2>
       <p><%= movie.overview %></p>
+      <%= link_to "Add bookmark", movie_bookmarks_new_path(movie.id) %>
     </div>
-    <%# link_to "Add bookmark", movie_bookmarks_new_path(movie) %>
+
   </div>
 </div>
 

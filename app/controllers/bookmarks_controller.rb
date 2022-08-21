@@ -28,11 +28,14 @@ class BookmarksController < ApplicationController
 
   def create_from_movie
     @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.movie_id = params[:movie_id]
     if @bookmark.valid?
       @bookmark.save
       redirect_to root_path
     else
-      render :new
+      # render :new ## bug et me redirect sur la view de "new" au lieu de "new_from_movie"
+      redirect_to root_path
+
     end
   end
 

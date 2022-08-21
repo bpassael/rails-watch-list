@@ -1,4 +1,4 @@
-<h1>New bookmark</h1>
+<h1>New bookmark for <%= @list.name %></h1>
 <%= simple_form_for [@list, @bookmark],  data: { turbo: false } do |f| %>
   <%= f.input :comment %>
     <%= f.association :movie, collection: Movie.order('title') %>
